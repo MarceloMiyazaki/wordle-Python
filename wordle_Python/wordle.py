@@ -1,19 +1,27 @@
 import random
 
-palavras = [
-    "amigo", "bravo", "campo", "dedal", "escol", "folha", "grato", "haste", "ideal", "jovem",
-    "lugar", "manta", "navio", "olhos", "prazo", "quero", "rumor", "sabor", "tarde", "unido",
-    "vulto", "xampu", "zebra", "abalo", "broto", "clube", "drama", "etapa", "feira", "globo",
-    "horta", "inicio", "jarra", "lente", "macro", "nuvem", "ovulo", "primo", "quase", "raiva",
-    "sinal", "trama", "utilo", "vazio", "vento", "xingo", "zumbi", "banco", "corpo", "doido",
-    "exato", "fardo", "genio", "humor", "indio", "junta", "linha", "midia", "nariz", "optico",
-    "pardo", "quero", "resto", "serie", "tenso", "unico", "vacuo", "xisto", "zelar", "brisa",
-    "cinto", "danca", "elite", "forca", "gruta"
-]
+tamanho = int(input("Numero de letras na palavra -->"))
+
+s = ""
+maiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+palavras = []
+
+with open("palavras.txt" ,"r") as file:
+    s = file.read()
+
+atual = ""
+for char in s:
+    if char == "\n":
+        if atual[1:][0] not in maiusculas and len(atual[1:]) == tamanho:
+            palavras.append(atual[1:])
+        atual = ""
+    atual += char
 
 key = random.choice(palavras) 
 end = False
 tent = 0
+
+print("*"*tamanho)
 
 while True:
     if not end:
