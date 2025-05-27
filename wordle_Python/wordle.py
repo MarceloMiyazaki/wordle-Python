@@ -61,7 +61,6 @@ while True:
 
     if end:
          print("============= \nPARABÉNS!!!!\n=============\nTentativas:", tent)
-         print(key)
          key = input("Nova chave: ")
          tent = 0
          print("\n"*75)
